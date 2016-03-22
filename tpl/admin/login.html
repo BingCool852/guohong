@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>后台管理登陆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="resources/admin/css/login.css">
+    <script src="resources/admin/js/jquery.min.js"></script>
+    <script src="resources/admin/js/login.js"></script>
+</head>
+
+<body id="login">
+    <div class="login-logo">
+        <h1 style="color:#000">
+            国宏实业
+        </h1>
+    </div>
+    <h2 class="form-heading">后台管理</h2>
+    <div class="app-cam">
+        <form method="post" action="admin.php?controller=admin&method=index">
+            <input type="text" class="user" name="user" value="用户名">
+            <input type="password" class="pwd" name="pwd" value="password">
+            <div class="submit">
+                <input type="submit" value="登陆">
+            </div>
+            <ul class="new">
+                <li class="new_right">
+                    <p><a href="#">忘记密码？</a></p>
+                </li>
+                <div class="clearfix"></div>
+            </ul>
+        </form>
+    </div>
+</body>
+
+</html>

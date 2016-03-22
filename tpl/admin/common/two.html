@@ -1,0 +1,120 @@
+<html>
+
+<head>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+    <script type="text/javascript" src="resources/admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/admin/js/layer.js"></script>
+    <link rel="stylesheet" href="resources/admin/css/admin.css">
+    <link rel="stylesheet" href="resources/ueditor/themes/default/css/ueditor.css">
+</head>
+
+<body>
+    <div class="location">
+        <span>当前位置:&nbsp;&nbsp;首页</span>
+        <span class="addtop addnew">添加新内容</span>
+    </div>
+    <div class="content_box_main">
+        <div>
+            <form action="" method="post">
+                <table class="input_box_role">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" value="all">
+                            </th>
+                            <th>序号</th>
+                            <th>标题</th>
+                            <th>内容</th>
+                            <th>状态</th>
+                            <th>时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {if is_array($data) eq false}
+                        <tr>
+                            <td colspan="7" style="color:red">没有数据，请新添加...</td>
+                        </tr> {else} {foreach $data as $d}
+                        <tr>
+                            <td>
+                                <input type="checkbox" value={$d.id}>
+                            </td>
+                            <td>{$d.id}</td>
+                            <td>
+                                {$d.title}
+                            </td>
+                            <td class="content{$d.id}" style="display: none">
+                                {$d.content}
+                            </td>
+                            <td>
+                                {$d.abstract}
+                            </td>
+                            <td>
+                                {if $d.status eq 1} 启用 {else} 停用 {/if}
+                            </td>
+                            <td>{$d.exchangetime|date_format:'Y年m月d日 H:i:s'}</td>
+                            <td>
+                                <span class="addnew">修改</span>&nbsp;&nbsp;
+                                <a href="#">预览</a>&nbsp;&nbsp;
+                                <a href="admin.php?controller=common&method=del&mark={$mark}&id={$d.id}">删除</a>
+                            </td>
+                        </tr>
+                        {/foreach} {/if}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div class="addnew_content" style="display:none">
+            <form action="admin.php?controller=common&method=addtwo&mark={$mark}" method="post" enctype="multipart/form-data">
+                <table>
+                    <tr>
+                        <td style="width:20%">标题</td>
+                        <td style="width:80%">
+                            <input type="text" name="title">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%">摘要</td>
+                        <td style="width:120%">
+                            <input type="text" name="abstract" style="width: 550px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%">图片</td>
+                        <td style="height:40px">
+                            <input name="img1" id="img1" style="display:inline" type="file">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%">状态</td>
+                        <td style="width:80%">
+                            <input type="text" name="status"><small>（0:停用,1:启用）.</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%">内容</td>
+                        <td style="width:80%" class="ueditor">
+                        </td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td style="width:10%"></td>
+                        <td>
+                            <input type="submit" value="提交" class="submit_btn">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <!-- 加载编辑器的容器 -->
+    <script type="text/javascript" src="resources/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="resources/ueditor/ueditor.all.min.js"></script>
+    <!-- 语言包文件 -->
+    <script type="text/javascript" src="resources/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!-- 实例化编辑器代码 -->
+    <script type="text/javascript" src="resources/admin/js/menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>国宏实业－后台管理</title>
+    <script type="text/javascript" src="resources/admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/admin/js/admin.js"></script>
+    <link rel="stylesheet" href="resources/admin/css/admin.css">
+</head>
+
+<body>
+    <div class="top_box">
+        <ul>
+            <li><a href="">前台浏览</a></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="content_box">
+        <div class="content_box_left">
+            <div class="menu" id="menu">
+                <div>
+                    <p>综合信息设置</p>
+                    <ul>
+                        <li><a href="#" traget="msg" onclick=aclick('msg')>基本信息设置</a></li>
+                        <li><a href="#" traget="role" onclick=aclick('role')>权限管理</a></li>
+                        <li><a href="#" traget="webcol" onclick=aclick('webcol')>网站栏目管理</a></li>
+                    </ul>
+                </div>
+                {foreach $menudata as $menu}
+                    <div>
+                        <p>{$menu.name}</p>
+                        {if $menu.child}
+                            
+                        <ul>
+                        {foreach $menu.child as $child}
+                            <li>
+                                <a href="#" traget="{$child.name}" onclick=aclick2('{$child.name}')>{$child.name}</a>
+                            </li>
+                        {/foreach}
+                        </ul>
+                            
+                        {else}
+                        <ul><li><a href="">创建子目录</a></ul>
+                        {/if} 
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+        <div class="content_box_right">
+            <div class="content_box_main content_welcome">
+                <p class="welcome">欢迎进入后台管理界面</p>
+            </div>
+
+            {include file="tpl/admin/footer.html"}

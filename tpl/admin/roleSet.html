@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″> 
+    <script type="text/javascript" src="resources/admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/admin/js/layer.js"></script>
+    <script type="text/javascript" src="resources/admin/js/menu.js"></script>
+    <link rel="stylesheet" href="resources/admin/css/admin.css">
+</head>
+
+<body>
+    <div class="location">
+        <span>当前位置:&nbsp;&nbsp;首页</span>
+    </div>
+    <div class="content_box_main">
+        <div>
+            <form action="" method="post">
+                <table class="input_box_role">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" value="all">
+                            </th>
+                            <th>用户名</th>
+                            <th>管理权限</th>
+                            <th>账号注册时间</th>
+                            <th>最近登录时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value={$user.id}>
+                            </td>
+                            <td>{$user.username}</td>
+                            <td>
+                                {if $user.role eq 0} 超级管理员 {else} 管理员 {/if}
+                            </td>
+                            <td>{$user.logintime|date_format:"Y年m月d日 H:i:s"}</td>
+                            <td>{$user.latetime|date_format:"Y年m月d日 H:i:s"}</td>
+                            <td>
+                                {if $user.status eq 1} 启用 {else} 停用 {/if}
+                            </td>
+                            <td>
+                                <a class="role_exchange" href="#">修改</a>&nbsp;&nbsp;
+                                <a href="#">删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
