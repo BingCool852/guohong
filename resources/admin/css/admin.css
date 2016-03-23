@@ -226,7 +226,7 @@ small {
     margin-right: 22px;
 }
 
-.add, .addnew{
+.add, .addnew, .exchange{
     cursor: pointer;
     color: blue;
 }

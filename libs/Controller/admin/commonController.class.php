@@ -79,5 +79,18 @@
 				echo '<script>if(confirm("操作失败，返回")){window.history.go(-1);}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
 			}
 		}
+
+		function showChildMenu(){
+
+			$pid = $_POST['pid'];
+			$childmenu = M('menu')->getChildMenu($pid);
+			if (is_array($childmenu) == true){
+				$childmenu[0]['pid'] = $pid;
+				echo json_encode($childmenu);
+			} else {
+				echo "null";
+			}
+			
+		}
 	}
 ?>
