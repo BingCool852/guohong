@@ -28,7 +28,7 @@
 			$menudata['type'] = $_POST['type'];
 			$menudata['exchangetime'] = time();
 			if (M('menu')->insert($menudata)){
-				if ($ischild = true) {
+				if ($ischild == 1) {
 					if($menudata['type'] == '1'){
 						$sql = "CREATE TABLE `guohong`.`".$menudata['url']."` ( `id` INT(16) NOT NULL AUTO_INCREMENT , `title` VARCHAR(64) NULL ,`abstract` VARCHAR(255) NULL , `src` VARCHAR(255) NULL , `content` TEXT NULL , `exchangetime` VARCHAR(64) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
 					} 
@@ -55,7 +55,7 @@
 			$data['sort'] = $_POST['sort'];
 			$data['type'] = $_POST['type'];
 			$data['exchangetime'] = time();
-			if ($data['pname'] == 0 ){
+			if ($data['parmenu'] == "0" ){
 				$where = 'id='.$id;
 				if (M('menu')->update($data,$where)){
 					echo '<script>if(confirm("操作成功，返回继续添加")){window.location.href="'.$_SERVER['HTTP_REFERER'].'"}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
@@ -63,7 +63,7 @@
 					echo '<script>if(confirm("操作失败，返回修改")){window.history.go(-1);}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
 				}
 			} else {
-				
+				echo "22";die;
 			}
 		}
 	}

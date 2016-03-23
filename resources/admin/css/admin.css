@@ -148,6 +148,7 @@ small {
 
 /*role*/
 
+.update_box,
 .addnew_content,
 .input_box_role,
 .exchange_box,
@@ -165,6 +166,7 @@ small {
     background-color: #fafafa;
 }
 
+.update_box tr,
 .addnew_content tr,
 .input_box_role tr,
 .exchange_box tr,
@@ -174,6 +176,7 @@ small {
     border-color: inherit;
 }
 
+.update_box th,
 .addnew_content th,
 .input_box_role th,
 .exchange_box th,
@@ -186,6 +189,7 @@ small {
     background: #e6e6e6;
 }
 
+.update_box td,
 .addnew_content td,
 .input_box_role td,
 .exchange_box td,
@@ -195,6 +199,7 @@ small {
     font-size: 13px;
 }
 
+.update_box table,
 .addnew_content table,
 .exchange_box table,
 .addtop_box table {
@@ -202,19 +207,22 @@ small {
 }
 
 .exchange_box .exchange_box_td1,
-.addtop_box .addtop_box1 {
+.addtop_box .addtop_box1,
+.update_box .addtop_box1 {
     width: 100px;
     text-align: right;
     background-color: #f6f6f6;
 }
 
 .exchange_box .exchange_box_td2,
-.addtop_box .addtop_box2 {
+.addtop_box .addtop_box2,
+.update_box .addtop_box2 {
     text-align: left;
 }
 
 .exchange_box .exchange_box_td2 input,
-.addtop_box .addtop_box2 input {
+.addtop_box .addtop_box2 input,
+.update_box .addtop_box2 input {
     width: 35%;
 }
 

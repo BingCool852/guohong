@@ -83,6 +83,60 @@
             </form>
         </div>
         <div class="addtop_box" style="display:none">
+            <form action="admin.php?controller=webcolSet&method=addmenu" method="post">
+                <table>
+                    <tr style="display:none">
+                        <td class="addtop_box1">id</td>
+                        <td class="addtop_box2">
+                            <input type="text" name="id">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="addtop_box1">父级栏目</td>
+                        <td class="addtop_box2">
+                            <input type="text" name="pname" class="pname" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="addtop_box1">栏目状态</td>
+                        <td class="addtop_box2">
+                            <input type="checkbox" value="1" style="width:10px" name="istrue">&nbsp;启用/关闭&nbsp;&nbsp;
+                            <!-- <input type="checkbox" value="istop" style="width:10px">&nbsp;顶级菜单 -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="addtop_box1">栏目名称</td>
+                        <td class="addtop_box2">
+                            <input type="text" name="name"><small>（多语言之间用"|"隔开）.</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="addtop_box1">排序</td>
+                        <td class="addtop_box2">
+                            <input type="text" name="sort"><small>（按从小到大排序；默认0最靠后）.</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="addtop_box1">链接地址</td>
+                        <td class="addtop_box2">
+                            <input type="text" name="url"><small>（不能出现中文和特殊字符".-/"等）.</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="addtop_box1">栏目类型</td>
+                        <td class="addtop_box2">
+                            <input type="text" name="type"><small>（输入1:单页&nbsp;&nbsp;2:列表页) .</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="提交" style="width:120px;margin:0 20px 0 0;height:24px;" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="update_box" style="display:none">
             <form action="admin.php?controller=webcolSet&method=updatemenu" method="post">
                 <table>
                     <tr style="display:none">

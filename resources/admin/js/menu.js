@@ -76,7 +76,7 @@ $(function() {
             title: '更新栏目',
             area: ['65%', '75%'],
             shadeClose: true, //点击遮罩关闭
-            content: $(".addtop_box")
+            content: $(".update_box")
         });
     });
 
