@@ -3,7 +3,7 @@
 
 		function index(){
 			$mark = $_GET['mark'];
-			$menuinfo = M('menu')->findType($mark);
+			$menuinfo = M('menu')->getMenu("url = "."'".$mark."'");
 			writefile($mark,$menuinfo[0]['type']);
 			$data = M('common')->getData($mark);
 
@@ -83,17 +83,17 @@
 			}
 		}
 
-		function showChildMenu(){
+		// function showChildMenu(){
 
-			$pid = $_POST['pid'];
-			$childmenu = M('menu')->getChildMenu($pid);
-			if (is_array($childmenu) == true){
-				$childmenu[0]['pid'] = $pid;
-				echo json_encode($childmenu);
-			} else {
-				echo "null";
-			}
+		// 	$pid = $_POST['pid'];
+		// 	$childmenu = M('menu')->getChildMenu($pid);
+		// 	if (is_array($childmenu) == true){
+		// 		$childmenu[0]['pid'] = $pid;
+		// 		echo json_encode($childmenu);
+		// 	} else {
+		// 		echo "null";
+		// 	}
 			
-		}
+		// }
 	}
 ?>

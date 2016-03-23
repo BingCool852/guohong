@@ -1,7 +1,7 @@
 <?php
 	class commonModel {
 
-		function create($sql){
+		function query($sql){
 			return DB::query($sql);
 		}
 

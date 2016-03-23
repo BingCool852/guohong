@@ -2,9 +2,9 @@
 	class webcolSetController{
 
 		function index(){
-			$menudata = M('menu')->getMenu();
+			$menudata = M('menu')->getMenu("parmenu = '0'");
 			foreach ($menudata as $key => $value) {
-				$childmenu = M('menu')->getChildMenu($value['id']);
+				$childmenu = M('menu')->getMenu("parmenu = "."'".$value['id']."'");
 				if (is_array($childmenu)){
 					$menudata[$key]['child'] = $childmenu;
 				}
@@ -17,10 +17,11 @@
 			$ischild = false;
 			$menudata['parmenu'] = $_POST['pname'];
 			if($menudata['parmenu'] != "0"){
-				$pinfo = M('menu')->getMenuId($menudata['parmenu']);
-				$menudata['parmenu'] = $pinfo['id'];
+				$pinfo = M('menu')->getMenu("name = "."'".$menudata['parmenu']."'");
+				$menudata['parmenu'] = $pinfo[0]['id'];
 				$ischild = true;
 			}
+			// p($menudata);die;
 			$menudata['name'] = $_POST['name'];
 			$menudata['status'] = $_POST['istrue'];
 			$menudata['sort'] = $_POST['sort'];
@@ -35,7 +36,7 @@
 					if($menudata['type'] == '2'){
 						$sql = "CREATE TABLE `guohong`.`".$menudata['url']."` ( `id` INT(16) NOT NULL AUTO_INCREMENT , `title` VARCHAR(64) NULL ,`abstract` VARCHAR(255) NULL , `src` VARCHAR(255) NULL , `content` TEXT NULL , `status` INT(4) NULL DEFAULT '1' , `exchangetime` VARCHAR(64) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
 					}
-					M('common')->create($sql);
+					M('common')->query($sql);
 					// writefile($menudata['url'],$menudata['type']);
 					setfile($menudata['url']);
 				}
@@ -49,21 +50,51 @@
 
 			$id = $_POST['id'];
 			$data['parmenu'] = $_POST['pname'];
+			if( $data['parmenu'] != "0"){
+				$pinfo = M('menu')->getMenu("name = "."'".$data['parmenu']."'");
+				$data['parmenu'] = $pinfo[0]['id'];
+			}
+			// p($data);die;
 			$data['name'] = $_POST['name'];
 			$data['status'] = $_POST['istrue'];
 			$data['url'] = $_POST['url'];
 			$data['sort'] = $_POST['sort'];
 			$data['type'] = $_POST['type'];
 			$data['exchangetime'] = time();
+			$where = 'id='.$id;
 			if ($data['parmenu'] == "0" ){
-				$where = 'id='.$id;
+
 				if (M('menu')->update($data,$where)){
 					echo '<script>if(confirm("操作成功，返回继续添加")){window.location.href="'.$_SERVER['HTTP_REFERER'].'"}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
 				} else {
 					echo '<script>if(confirm("操作失败，返回修改")){window.history.go(-1);}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
 				}
 			} else {
-				echo "22";die;
+				$oldda = M('menu')->getMenu("id = "."'".$id."'");
+				if ($oldda[0]['type'] != $data['type']){
+					$sql1 = "DROP TABLE ".$oldda[0]['url'];
+					if (M('common')->query($sql1)){
+						if($data['type'] == '1'){
+							$sql2 = "CREATE TABLE `guohong`.`".$oldda[0]['url']."` ( `id` INT(16) NOT NULL AUTO_INCREMENT , `title` VARCHAR(64) NULL ,`abstract` VARCHAR(255) NULL , `src` VARCHAR(255) NULL , `content` TEXT NULL , `exchangetime` VARCHAR(64) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+						} 
+						if($data['type'] == '2'){
+							$sql2 = "CREATE TABLE `guohong`.`".$oldda[0]['url']."` ( `id` INT(16) NOT NULL AUTO_INCREMENT , `title` VARCHAR(64) NULL ,`abstract` VARCHAR(255) NULL , `src` VARCHAR(255) NULL , `content` TEXT NULL , `status` INT(4) NULL DEFAULT '1' , `exchangetime` VARCHAR(64) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+						}
+						M('common')->query($sql2);
+					}
+				}
+				if ($oldda[0]['url'] != $data['url']){
+					$sql = "ALTER  TABLE ".$oldda[0]['url']." RENAME TO ".$data['url'];
+					M('common')->query($sql);
+					rename("tpl/admin/".$oldda[0]['url'].'.html', "tpl/admin/".$data['url'].'.html');
+				}
+
+				if (M('menu')->update($data,$where)) {
+					echo '<script>if(confirm("操作成功，返回继续添加")){window.location.href="'.$_SERVER['HTTP_REFERER'].'"}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
+				} else {
+					echo '<script>if(confirm("操作失败，返回修改")){window.history.go(-1);}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
+				}
+				
 			}
 		}
 	}

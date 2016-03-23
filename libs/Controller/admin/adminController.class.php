@@ -2,9 +2,10 @@
 	class adminController{
 
 		function index(){
-			$menudata = M('menu')->getMenu();
+			$menudata = M('menu')->getMenu("parmenu = '0'");
 			foreach ($menudata as $key => $value) {
-				$childmenu = M('menu')->getChildMenu($value['id']);
+				$childmenu = M('menu')->getMenu("parmenu = "."'".$value['id']."'");
+				// $childmenu = M('menu')->getChildMenu($value['id']);
 				if (is_array($childmenu)){
 					$menudata[$key]['child'] = $childmenu;
 				}
