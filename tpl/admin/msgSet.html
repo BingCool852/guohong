@@ -14,54 +14,54 @@
     </div>
     <div class="content_box_main">
         <div class="input_box">
-            <form action="" method="post">
+            <form action="admin.php?controller=msgSet&method=addmsg" method="post">
                 <table>
                     <tr>
                         <td class="input_msg">公司名称</td>
                         <td class="msg_box">
-                            <input type="text" name="productid">
+                            <input type="text" name="name" value="{$datas[0]['name']}">
                         </td>
                     </tr>
                     <tr>
                         <td class="input_msg">传真号码</td>
                         <td class="msg_box">
-                            <input type="text" name="productname">
+                            <input type="text" name="faxnum" value="{$datas[0]['faxnum']}">
                         </td>
                     </tr>
                     <tr>
                         <td class="input_msg">电话号码</td>
                         <td class="msg_box">
-                            <input type="text" name="producttype">
+                            <input type="text" name="telnum" value="{$datas[0]['telnum']}">
                         </td>
                     </tr>
                     <tr>
                         <td class="input_msg">电子邮件</td>
                         <td class="msg_box">
-                            <input type="text" name="productstyle">
+                            <input type="text" name="email" value="{$datas[0]['email']}">
                         </td>
                     </tr>
                     <tr>
                         <td class="input_msg">新浪微博</td>
                         <td class="msg_box">
-                            <input type="text" name="productrate">
+                            <input type="text" name="weibo" value="{$datas[0]['weibo']}">
                         </td>
                     </tr>
                     <tr>
                         <td class="input_msg">网站标题</td>
                         <td class="msg_box">
-                            <input type="text" name="productrate">
+                            <input type="text" name="webtitle" value="{$datas[0]['webtitle']}">
                         </td>
                     </tr>
                     <tr>
                         <td class="input_msg">简历邮箱</td>
                         <td class="msg_box">
-                            <input type="text" name="productrate">
+                            <input type="text" name="resume" value={$datas[0]['resume']}>
                         </td>
                     </tr>
                     <tr>
                         <td class="input_msg">公司地址</td>
-                        <td class="msg_box">
-                            <input type="text" name="productrate">
+                        <td class="msg_box" style="width:80%">
+                            <input style="width:90%" type="text" name="address" value={$datas[0]['address']}>
                         </td>
                     </tr>
                     <tr>
