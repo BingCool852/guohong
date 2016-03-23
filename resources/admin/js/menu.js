@@ -5,12 +5,12 @@ $(function() {
 
         var id = $(this).prev('td').children().val();
         var childs = '.a' + id;
-        if ($(childs).css('display') == 'table-row'){
-            $($(this).parent()).css('background-color',"#fff");
-            $(childs).css('display','none');
+        if ($(childs).css('display') == 'table-row') {
+            $($(this).parent()).css('background-color', "#fff");
+            $(childs).css('display', 'none');
         } else {
-            $($(this).parent()).css('background-color',"#8BC34A");
-            $(childs).css('display','table-row');
+            $($(this).parent()).css('background-color', "#8BC34A");
+            $(childs).css('display', 'table-row');
         }
         // $.post(
         //     "admin.php?controller=common&method=showChildMenu", { pid: id },
@@ -55,14 +55,16 @@ $(function() {
             }
         }
         console.log(da);
-        $('input[name=pname]').attr('value',da[0]);
-        $('input[name=name]').attr('value',da[5]);
-        $('input[name=sort]').attr('value',da[8]);
-        $('input[name=type]').attr('value',da[10]);
-        $('input[name=url]').attr('value',da[11]);
-
-        if (da[13] == 1){
-           $('input[name=istrue]').attr('checked','checked'); 
+        $('input[name=pname]').attr('value', da[9]);
+        $('input[name=name]').attr('value', da[0]);
+        $('input[name=sort]').attr('value', da[3]);
+        $('input[name=type]').attr('value', da[5]);
+        $('input[name=url]').attr('value', da[8]);
+        $('input[name=id]').attr('value', da[15]);
+        if (da[7] == 1) {
+            $('input[name=istrue]').attr('checked', 'checked');
+        } else {
+            $('input[name=istrue]').removeAttr('checked');
         }
 
         layer.open({
@@ -101,7 +103,7 @@ $(function() {
             title: '添加栏目',
             area: ['65%', '75%'],
             shadeClose: true, //点击遮罩关闭
-            content: $(".addtop_box")
+            content: $(".addtop_box"),
         });
     });
 

@@ -54,4 +54,10 @@
 	    fputs($fp,$str);
 	    fclose($fp);
 	}
+
+	function setfile($fname){
+	    $fp=fopen("tpl/admin/".$fname.'.html',"w");
+	    // fputs($fp,$str);
+	    fclose($fp);
+	}
 ?>

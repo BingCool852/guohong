@@ -40,21 +40,23 @@
                             <td>
                                 {$menu.sort}
                             </td>
-                            <td>{$menu.url}</td>
+                            <td>{$menu.type}</td>
                             <td>
                                 {if $menu.status eq 1} 启用 {else} 停用 {/if}
                             </td>
+                            <td style="display:none">{$menu.url}</td>
+                            <td style="display:none">0</td>
                             <td>
                                 <span class="add">添加子栏目</span>&nbsp;&nbsp;
                                 <span class="exchange">更新栏目</span>&nbsp;&nbsp;
                                 <a href="#">删除栏目</a>
                             </td>
+                            <td style="display:none">{$menu.id}</td>
                         </tr>
                         {foreach $menu.child as $child}
                         <tr style="display: none;background-color:#AEDBB0;" class=a{$menu.id}>
-                            <td style="display:none">{$menu.name}</td>
                             <td>
-                                |-&nbsp;<input type="checkbox" value={$child.id}>
+                                <input type="checkbox" value={$child.id}>
                             </td>
                             <td>
                                 {$child.name}
@@ -63,14 +65,17 @@
                                 {$child.sort}
                             </td>
                             <td>{$child.type}</td>
-                            <td style="display:none">{$child.url}</td>
                             <td>
                                 {if $child.status eq 1} 启用 {else} 停用 {/if}
                             </td>
+                            <td style="display:none">{$child.url}</td>
+                            <td style="display:none">{$menu.name}</td>
                             <td>
+                                <span></span>
                                 <span class="exchange">更新栏目</span>&nbsp;&nbsp;
                                 <a href="#">删除栏目</a>
                             </td>
+                            <td style="display:none">{$child.id}</td>
                         </tr>
                         {/foreach} {/foreach}
                     </tbody>
@@ -78,12 +83,18 @@
             </form>
         </div>
         <div class="addtop_box" style="display:none">
-            <form action="admin.php?controller=webcolSet&method=addmenu" method="post">
+            <form action="admin.php?controller=webcolSet&method=updatemenu" method="post">
                 <table>
+                    <tr style="display:none">
+                        <td class="addtop_box1">id</td>
+                        <td class="addtop_box2">
+                            <input type="text" name="id">
+                        </td>
+                    </tr>
                     <tr>
                         <td class="addtop_box1">父级栏目</td>
                         <td class="addtop_box2">
-                            <input type="text" name="pname" class="pname">
+                            <input type="text" name="pname" class="pname" value="0">
                         </td>
                     </tr>
                     <tr>
@@ -102,13 +113,13 @@
                     <tr>
                         <td class="addtop_box1">排序</td>
                         <td class="addtop_box2">
-                            <input type="text" name="sort"><small>（按从小到大排序；默认最靠后）.</small>
+                            <input type="text" name="sort"><small>（按从小到大排序；默认0最靠后）.</small>
                         </td>
                     </tr>
                     <tr>
                         <td class="addtop_box1">链接地址</td>
                         <td class="addtop_box2">
-                            <input type="text" name="url"><small>（外部链接必须以"http://"开始，可为空）.</small>
+                            <input type="text" name="url"><small>（不能出现中文和特殊字符".-/"等）.</small>
                         </td>
                     </tr>
                     <tr>

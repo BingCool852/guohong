@@ -20,4 +20,13 @@
 		function insert($arr){
 			return DB::insert($this->_table,$arr);
 		}
+
+		function update($arr,$where){
+			return DB::update($this->_table,$arr,$where);
+		}
+
+		function findType($where){
+			$sql = "select * from ". $this->_table." where url = "."'".$where."'";
+			return DB::findAll($sql);
+		}
 	}

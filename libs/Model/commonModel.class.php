@@ -9,7 +9,7 @@
 			return DB::insert($table,$arr);
 		}
 
-		function getOneData($table){
+		function getData($table){
 			$sql = "select * from ". $table;
 			return DB::findAll($sql);
 		}
