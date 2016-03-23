@@ -22,14 +22,14 @@ function aclick(value) {
     //     $(str2).css('display','none');
     //     $('.content_welcome').css('display','none');
     // }
-    var html = '<iframe name="'+value+'" frameborder=0 width=100% height=100% src="admin.php?controller='+value+'Set&method=index" >';
+    var html = '<iframe name="'+value+'" scrolling=no frameborder=0 width=100% height=100% marginheight=0 marginwidth=0 src="admin.php?controller='+value+'Set&method=index" >';
     if($('.content_welcome').css('display','none')){
         $('.content_box_right').html(html);
     }
 }
 
 function aclick2(value) {
-    var html = '<iframe name="'+value+'" frameborder=0 width=100% height=100% marginheight=0 marginwidth=0  src="admin.php?controller=common&method=index&mark='+value+'" >';
+    var html = '<iframe name="'+value+'" scrolling=no frameborder=0 width=100% height=100% marginheight=0 marginwidth=0  src="admin.php?controller=common&method=index&mark='+value+'" >';
     if($('.content_welcome').css('display','none')){
         $('.content_box_right').html(html);
     }

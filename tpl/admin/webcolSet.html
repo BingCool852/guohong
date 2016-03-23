@@ -49,7 +49,7 @@
                             <td>
                                 <span class="add">添加子栏目</span>&nbsp;&nbsp;
                                 <span class="exchange">更新栏目</span>&nbsp;&nbsp;
-                                <a href="#">删除栏目</a>
+                                <a href="" onclick="javascript:alert('删除限制 ')" style="color: #ccc;">删除限制</a>
                             </td>
                             <td style="display:none">{$menu.id}</td>
                         </tr>
@@ -73,7 +73,7 @@
                             <td>
                                 <span></span>
                                 <span class="exchange">更新栏目</span>&nbsp;&nbsp;
-                                <a href="#">删除栏目</a>
+                                <a href="admin.php?controller=webcolSet&method=delmenu&id={$child.id}&url={$child.url}">删除栏目</a>
                             </td>
                             <td style="display:none">{$child.id}</td>
                         </tr>

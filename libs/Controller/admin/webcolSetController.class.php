@@ -60,6 +60,7 @@
 			$data['url'] = $_POST['url'];
 			$data['sort'] = $_POST['sort'];
 			$data['type'] = $_POST['type'];
+			// p($data);die;
 			$data['exchangetime'] = time();
 			$where = 'id='.$id;
 			if ($data['parmenu'] == "0" ){
@@ -96,6 +97,19 @@
 				}
 				
 			}
+		}
+
+		function delmenu(){
+			$id = $_GET['id'];
+			$url = $_GET['url'];
+			$where = "id = ".$id;
+			$sql = "DROP TABLE ".$url;
+			if(M('common')->query($sql) && M('common')->delete('menu',$where) && unlink("tpl/admin/".$url.".html")){
+				echo '<script>if(confirm("操作成功，返回继续添加")){window.location.href="'.$_SERVER['HTTP_REFERER'].'"}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
+			} else {
+				echo '<script>if(confirm("操作失败，返回修改")){window.history.go(-1);}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
+			}
+
 		}
 	}
 ?>
