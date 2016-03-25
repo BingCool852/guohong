@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>国宏实业</title>
+    <link rel="stylesheet" type="text/css" href="./resources/home/css/base.css" />
+    <script src="./resources/home/js/jquery-1.9.1.min.js"></script>
+    <script src="./resources/home/js/base.js"></script>
+</head>
+
+<body>
+    <div class="header_box">
+        <ul class="header_box_ul1">
+            <li class="ul1_left">
+                <a href="">
+                    <table>
+                        <tr>
+                            <td rowspan="2"><img src="./resources/home/img/logo.png" alt="" /></td>
+                            <td class="webtitle">国宏实业</td>
+                        </tr>
+                        <tr>
+                            <td class="webtitle2">GO-Hoard-invest-industry</td>
+                        </tr>
+                    </table>
+                </a>
+            </li>
+            <li class="ul1_center">
+                <ul class="mainmenu_ul">
+                    {foreach $menudata as $data}
+                        <li class="mainmenu"><a href="home.php?controller=common&method=index&mark={$data.url}">{$data.name}</a></li>
+                    {/foreach}
+                </ul>
+            </li>
+            <li class="ul1_right">
+                <ul class="ul1_right_share">
+                    <li>
+                        <a href="#"><img src="./resources/home/img/iconfont-weibo.png" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="./resources/home/img/iconfont-weixin.png" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="./resources/home/img/iconfont-QQ.png" alt="" /></a>
+                    </li>
+                </ul>
+                <ul class="ul1_right_list">
+                </ul>
+            </li>
+        </ul>
+    </div>

@@ -1,0 +1,33 @@
+<div class="bottom_box">
+    <div class="w1200">
+        <div class="right fr">
+            <div class="img fr"><img src="./resources/home/img/wx.jpg" width="127" height="127"></div>
+            <div class="txt fl tr">客户热线
+                <p class="tel">028-1234678</p>
+            </div>
+        </div>
+        <div class="left fl">
+            <div class="share" id="share">
+                <div class="bdsharebuttonbox bdshare-button-style2-32" data-bd-bind="1458799094622">
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                </div>
+            </div>
+            <div class="fmenu mt20">
+                {foreach $menudata as $data}
+                <a href="home.php?controller=home&method=index&mark={$data.url}" style="margin-left: 0;margin-right: 20px">{$data.name}</a>
+                <!-- <a href="about.php" style="margin-left:0;">关于我们</a> |
+                    <a href="news.php">新闻动态</a> |
+                    <a href="service.php">服务领域</a> |
+                    <a href="pro.php">成功案例</a> |
+                    <a href="son.php">全资子公司</a> |
+                    <a href="contact.php">联系我们</a> -->
+                {/foreach}
+                <p> Copyright(C) 2005-2015 wangqiu 蜀ICP备12345678号-1 </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<html>

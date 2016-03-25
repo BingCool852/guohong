@@ -1,5 +1,5 @@
 <?php
-	class adminController{
+	class indexController{
 
 		function index(){
 			$menudata = M('menu')->getMenu("parmenu = '0'");
@@ -10,7 +10,7 @@
 				}
 			}
 			VIEW::assign(array('menudata' => $menudata));
-			VIEW::display('admin/base.html');
+			VIEW::display('home/home.html');
 		}
 	}
 ?>

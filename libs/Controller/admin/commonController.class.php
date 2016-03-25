@@ -4,7 +4,7 @@
 		function index(){
 			$mark = $_GET['mark'];
 			$menuinfo = M('menu')->getMenu("url = "."'".$mark."'");
-			writefile($mark,$menuinfo[0]['type']);
+			writefile($mark,'admin',$menuinfo[0]['type']);
 			$data = M('common')->getData($mark);
 
 			VIEW::assign(array('mark' => $mark,'data' => $data));

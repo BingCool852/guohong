@@ -1,0 +1,42 @@
+{include file="tpl/home/header.html"}
+<div class="content_box">
+    <div class="content_topimg" style="background-image: url({$content.0.src});">
+        <div class="mm">
+            <span>{$res.0.name}</span>
+            <!-- <p>about us</p> -->
+        </div>
+    </div>
+    <div class="content_box_menu">
+        <!-- <a class="select">公司简介</a> -->
+        <!-- <a>行业资质</a>
+        <a>服务理念</a>
+        <a>公司体系</a> -->
+        {foreach $childmenu as $child}
+            <a value={$child.url}>{$child.name}</a>
+        {/foreach}
+    </div>
+    <div class="content_box_show">
+        <div class="cont p40" id="one">
+            {$content[0]['content']}
+            <!-- <h3><span style="line-height: 0px;">﻿</span>{$content.0.title}</h3>
+            <p>
+                <br>
+            </p>
+            <p>成都国弘投资实业有限公司是一家集投资、开发、餐饮娱乐、饮品酒业和生物科技开发为一体，多元化发展的集团型企业。拥有资产六千万元，员工200名，本科生38名，本科生38名，以及5名硕士研究生。下属企业有：新世纪俱乐部，成都市久源酒业有限公司（邛峡酒源酒业厂），成都国弘生物科技开发有限公司、国弘典当行、国梁汽车租赁有限公</p>
+            <p>司，极具宏达规模的仙露明珠国际会所（桑拿，休闲，运动和餐饮娱乐中心）。特别是我公司拥有一批颇具经验的策划、经营管理人才，他们的目光锐敏、思路开阔，是敢于尝试各种跨行业、跨地区开发的优秀精英，国弘作为一家投资型企业深知聚贤纳士，广招人才，不断给企业增添新鲜血液，注入新的活力才是企业生存和发展的根本所在。</p>
+            <p>展望跨世纪的国弘，必将以新的面貌迎接挑战。</p>
+            <p>
+                <br>
+            </p>
+            <p>Chengdu Hong investment Industrial Co., Ltd. is a set of investment, development, catering and entertainment, beverage industry and biotechnology development as one of the diversified development of the group type enterprise. With assets of sixty million yuan, 200 employees, 38 undergraduate students, 38 undergraduate students, and 5 graduate students. Subordinate enterprises are: New Century Club, Chengdu City for a long time source Wine Co., Ltd. (Qiong gap source wine wine factory), Chengdu, China Hong Biotechnology Development Co., Ltd., the Hong hock OK, Guoliang car rental Co., Ltd., HTC scale very elegant and graceful International Club (sauna, leisure, sports, and entertainment center). Especially we have quite a number of experience, planning, business management personnel, their vision acuity, open-minded, dare to try a variety of cross industry, cross regional development of elite, Guohong as an investment type enterprises aware of Monash CentreStage and broad strokes of talent, companies continue to put add fresh blood, inject new vitality is the fundamentality of survival and development of enterprises.</p>
+            <p>Looking across the century, the national Hong, will meet the challenge with a new look.</p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p> -->
+        </div>
+    </div>
+</div>
+{include file="tpl/home/footer.html"}

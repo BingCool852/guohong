@@ -27,5 +27,10 @@
 			return DB::del($table,$where);
 		}
 
+		function getOneData($table,$where){
+			$sql = "select * from ". $table. $where;
+			return DB::findAll($sql);
+		}
+
 
 	}

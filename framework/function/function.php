@@ -37,20 +37,20 @@
 		echo '</pre>';
 	}
 
-	function writefile($fname,$type){
+	function writefile($fname,$mark,$type){
 		switch ($type) {
 			case '1':
-				$str = "{include file='tpl/admin/common/one.html'}";
+				$str = "{include file='tpl/".$mark."/common/one.html'}";
 				break;
 			
 			case '2':
-				$str = "{include file='tpl/admin/common/two.html'}";
+				$str = "{include file='tpl/".$mark."/common/two.html'}";
 				break;
 			default:
-				$str = "{include file='tpl/admin/common/one.html'}";
+				$str = "{include file='tpl/".$mark."/common/one.html'}";
 				break;
 		}
-	    $fp=fopen("tpl/admin/".$fname.'.html',"w");
+	    $fp=fopen("tpl/".$mark."/".$fname.'.html',"w");
 	    fputs($fp,$str);
 	    fclose($fp);
 	}
@@ -60,4 +60,5 @@
 	    // fputs($fp,$str);
 	    fclose($fp);
 	}
+
 ?>
