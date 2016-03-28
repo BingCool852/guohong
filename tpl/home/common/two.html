@@ -8,12 +8,12 @@
     </div>
     <div class="content_box_menu">
         {foreach $childmenu as $child}
-            <a value={$child.url}>{$child.name}</a>
-        {/foreach}
+        <a value={$child.url}>{$child.name}</a> {/foreach}
     </div>
     <div class="content_box_show">
         <div class="cont p40 two news" id="two">
             <div class="clear">
+            {if is_array($content)}
                 {foreach $content as $con}
                 <div class="team">
                     <div class="txt">
@@ -26,22 +26,9 @@
                     </div>
                 </div>
                 {/foreach}
-            </div>
-        </div>
-        <div class="cont p40 two news" id="two" style="display: none">
-            <div class="clear">
-                {foreach $content as $con}
-                <div class="team">
-                    <div class="txt">
-                        <h3><span class="fr time">{$con.exchangetime|date_format:'Y-m-d'}</span><a class="article-title" href="home.php?controller=common&method=allcon&mark={$con.url}">{$con.title}</a></h3>
-                        <div class="m"> {$con.content}</div>
-                        <a href="home.php?controller=common&method=allcon&mark={$con.url}" class="more">了解更多</a>
-                    </div>
-                    <div class="img">
-                        <a href="home.php?controller=common&method=allcon&mark={$con.url}"><img src="{$con.src}" width="318" height="210"></a>
-                    </div>
-                </div>
-                {/foreach}
+                {else}
+                <div>没有数据......</div>
+                {/if}
             </div>
         </div>
     </div>

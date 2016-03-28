@@ -1,1 +1,183 @@
-{include file="tpl/home/one.html"}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>国宏实业</title>
+    <link rel="stylesheet" type="text/css" href="./resources/home/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./resources/home/css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./resources/home/css/responsiveslides.css" />
+    <script src="./resources/home/js/jquery-1.9.1.min.js"></script>
+    <script src="./resources/common/responsiveslides.min.js"></script>
+    <script src="./resources/common/common.js"></script>
+    <script src="./resources/home/js/base.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        // Slideshow 
+        $("#slider").responsiveSlides({
+            auto: true,
+            pager: false,
+            nav: true,
+            speed: 500,
+            timeout: 4000,
+            pager: true,
+            pauseControls: true,
+            namespace: "callbacks"
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="header_box">
+        <ul class="header_box_ul1">
+            <li class="ul1_left">
+                <a href="home.php?controller=index&method=index">
+                    <table>
+                        <tr>
+                            <td rowspan="2"><img src="./resources/home/img/logo.png" alt="" /></td>
+                            <td class="webtitle">国宏实业</td>
+                        </tr>
+                        <tr>
+                            <td class="webtitle2">GO-Hoard-invest-industry</td>
+                        </tr>
+                    </table>
+                </a>
+            </li>
+            <li class="ul1_center">
+                <ul class="mainmenu_ul">
+                    <li class="mainmenu"><a href="home.php?controller=index&method=index">首页</a></li>
+                    {foreach $menudata as $data}
+                    <li class="mainmenu"><a href="home.php?controller=common&method=index&mark={$data.url}">{$data.name}</a></li>
+                    {/foreach}
+                </ul>
+            </li>
+            <li class="ul1_right">
+                <ul class="ul1_right_share">
+                    <li>
+                        <a href="#"><img src="./resources/home/img/iconfont-weibo.png" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="./resources/home/img/iconfont-weixin.png" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="./resources/home/img/iconfont-QQ.png" alt="" /></a>
+                    </li>
+                </ul>
+                <ul class="ul1_right_list">
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="content_box">
+        <div class="content_topimg">
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li>
+                        <a href=""><img src="./resources/home/img/index_1.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./resources/home/img/index_2.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./resources/home/img/index_3.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./resources/home/img/index_4.jpg" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w1200 company">
+            <div class="right"></div>
+            <div class="fl left">
+                <p class="en">subordinate</p>
+                <p class="en">company</p>
+                <p class="cn">旗下企业</p>
+                <a href="son.php" class="more" style="color:#fff">查看更多  &gt;</a>
+            </div>
+            <div class="data">
+                <div class="team"><a href="son.php?pid=16"><span></span>天凰影视文化</a></div>
+                <div class="team"><a href="son.php?pid=17"><span></span>国宏生物科技开发</a></div>
+                <div class="team"><a href="son.php?pid=18"><span></span>新兴电力开发</a></div>
+                <div class="team"><a href="son.php?pid=19"><span></span>国宏典当</a></div>
+                <div class="team"><a href="son.php?pid=20"><span></span>天堃建筑工程</a></div>
+                <div class="team"><a href="son.php?pid=21"><span></span>久源酒业</a></div>
+                <div class="team"><a href="son.php?pid=22"><span style="background-image:url(./resources/home/img/logo.png)"></span>SUNRICH</a></div>
+            </div>
+        </div>
+        <div class="about clear">
+            <div class="w1200">
+                <div class="txt fr">
+                    <h2>集团简介 &nbsp; &nbsp;Group Profile</h2>
+                    <p>成都国宏投资实业有限公司是一家集投资、开发、餐饮娱乐、饮品酒业和生物科技开发为一体、多元化发展的集团型企业。拥有资产六千万元、员工200名，本科生38名，以及5名硕士...</p>
+                    <p>Chengdu Macro Investment Industrial Co., Ltd. is a set of investment, development, catering and entertainment, beverage industry and biotechnology development as one of the diversified development of the group type enterprise. With assets of sixty million yuan, 200 employees, 38 undergraduate students, as well as 5 masters...</p>
+                </div>
+                <div class="img fl"><img src="./resources/home/img/company_img.jpg
+                " width="265" height="174"></div>
+            </div>
+        </div>
+        <div class="w1200 new">
+            <div class="tit">
+                <div class="fr"><span class=""></span><span class="current"></span></div><a href="news.php">新闻动态<b class="en">News information</b></a></div>
+            <div class="mt10 clear box" style="height:217px;width:100%;">
+                <div class="w110">
+                    <div class="teams current" style="position: absolute;">
+                        <div class="team current">
+                            <div class="time">03-19
+                                <p class="y">2016</p>
+                            </div>
+                            <a href="news.php?pid=11&amp;id=23">
+                                <p class="name">新闻信息</p>
+                                <p>汇国际融资租赁（深圳）有限公司是经商务部批准的专门从事融资租赁业务的金融机构。公司的业务方向以中小企业和事业单位为主，涉及行业主要包括医疗器...</p>
+                            </a>
+                        </div>
+                        <div class="team ">
+                            <div class="time">03-19
+                                <p class="y">2016</p>
+                            </div>
+                            <a href="news.php?pid=11&amp;id=14">
+                                <p class="name">新闻信息</p>
+                                <p>汇国际融资租赁（深圳）有限公司是经商务部批准的专门从事融资租赁业务的金融机构。公司的业务方向以中小企业和事业单位为主，涉及行业主要包括医疗器...</p>
+                            </a>
+                        </div>
+                        <div class="team " style="margin: 0px;">
+                            <div class="time">03-19
+                                <p class="y">2016</p>
+                            </div>
+                            <a href="news.php?pid=11&amp;id=26">
+                                <p class="name">新闻信息</p>
+                                <p>汇国际融资租赁（深圳）有限公司是经商务部批准的专门从事融资租赁业务的金融机构。公司的业务方向以中小企业和事业单位为主，涉及行业主要包括医疗器...</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_box">
+        <div class="w1200">
+            <div class="right fr">
+                <div class="img fr"><img src="./resources/home/img/wx.jpg" width="127" height="127"></div>
+                <div class="txt fl tr">客户热线
+                    <p class="tel">028-1234678</p>
+                </div>
+            </div>
+            <div class="left fl">
+                <div class="share" id="share">
+                    <div class="bdsharebuttonbox bdshare-button-style2-32" data-bd-bind="1458799094622">
+                        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                    </div>
+                </div>
+                <div class="fmenu mt20">
+                    {foreach $menudata as $data}
+                    <a href="home.php?controller=home&method=index&mark={$data.url}" style="margin-left: 0;margin-right: 20px">{$data.name}</a> {/foreach}
+                    <p> Copyright(C) 2005-2015 wangqiu 蜀ICP备12345678号-1 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<html>

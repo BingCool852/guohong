@@ -6,6 +6,7 @@
     <title>国宏实业</title>
     <link rel="stylesheet" type="text/css" href="./resources/home/css/base.css" />
     <script src="./resources/home/js/jquery-1.9.1.min.js"></script>
+    <script src="./resources/common/common.js"></script>
     <script src="./resources/home/js/base.js"></script>
 </head>
 
@@ -13,7 +14,7 @@
     <div class="header_box">
         <ul class="header_box_ul1">
             <li class="ul1_left">
-                <a href="">
+                <a href="home.php?controller=index&method=index">
                     <table>
                         <tr>
                             <td rowspan="2"><img src="./resources/home/img/logo.png" alt="" /></td>
@@ -27,6 +28,7 @@
             </li>
             <li class="ul1_center">
                 <ul class="mainmenu_ul">
+                    <li class="mainmenu"><a href="home.php?controller=index&method=index">首页</a></li>
                     {foreach $menudata as $data}
                         <li class="mainmenu"><a href="home.php?controller=common&method=index&mark={$data.url}">{$data.name}</a></li>
                     {/foreach}
