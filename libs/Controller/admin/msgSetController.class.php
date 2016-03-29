@@ -20,7 +20,7 @@
 			$data['webtitle'] = $_POST['webtitle'];
 			$data['resume'] = $_POST['resume'];
 			$data['address'] = $_POST['address'];
-			$data['exchangetime'] = time();
+			$data['exchangetime'] = time() + 25200;
 
 			if ($res['count(id)'] == 1) {
 				$where = "id=1";

@@ -4,40 +4,18 @@ $(function() {
     $('.showchild').on('click', function() {
 
         var id = $(this).prev('td').children().val();
-        var childs = '.a' + id;
+        var childs = '.child' + id;
+        var span = $(this).children('span');
+        console.log(span);
         if ($(childs).css('display') == 'table-row') {
             $($(this).parent()).css('background-color', "#fff");
             $(childs).css('display', 'none');
+            span.text('＋');
         } else {
             $($(this).parent()).css('background-color', "#8BC34A");
             $(childs).css('display', 'table-row');
+            span.text('－');
         }
-        // $.post(
-        //     "admin.php?controller=common&method=showChildMenu", { pid: id },
-        //     function(data) {
-        //         if (data != "null") {
-        //             var datas = eval(data);
-        //             var pid = "#" + datas[0]['pid'];
-        //             var html;
-        //             for (var i in datas) {
-
-        //                 if (datas[i].status == 1) {
-        //                     datas[i].status = "启用";
-        //                 } else {
-        //                     datas[i].status = "停用";
-        //                 }
-
-        //                 if (datas[i].type == 1) {
-        //                     datas[i].type = "单页";
-        //                 } else if (datas[i].type == 2) {
-        //                     datas[i].type = "列表页";
-        //                 }
-        //                 html = "<tr style='background-color:#AEDBB0'><td>|一&nbsp;<input type='checkbox' value='" + datas[i].id + "'></td><td>" + datas[i].name + "</td><td>" + datas[i]['sort'] + "</td><td>" + datas[i].type + "</td><td>" + datas[i].status + "</td><td><span class='exchange'>更新栏目</span>&nbsp;&nbsp;<span><a href='#'>删除栏目</a></span></td></tr>";
-        //                 $(pid).after(html);
-        //             }
-        //         }
-        //     }, "json"
-        // );
     });
 
     /*栏目页更新栏目弹框*/
@@ -107,7 +85,7 @@ $(function() {
         });
     });
 
-    /*添加内容弹框*/
+    /*添加管理员弹框*/
     $('.addnew').on('click', function() {
 
         var mark = $(this).text(),
@@ -124,7 +102,6 @@ $(function() {
                     da[i] = datas[i].trim();
                 }
             }
-            // console.log(da);
             $('input[name=title]').attr('value', da[2]);
             $('input[name=abstract]').attr('value', da[8]);
             $('input[name=status]').attr('value', da[11]);
@@ -158,4 +135,37 @@ $(function() {
             }
         });
     });
+
+    $('.addadmin').on('click', function() {
+        layer.open({
+            type: 1,
+            dialog: {
+                msg: '右下角消息提示',
+                btns: 2,
+            },
+            title: '添加管理员',
+            area: ['65%', '75%'],
+            shadeClose: true, //点击遮罩关闭
+            content: $(".addadmin_box"),
+        });
+    });
+
+    $('#pwd2').blur(function(){
+        var pwd = $('#pwd').val();
+        var pwd2 = $(this).val();
+        if(pwd != pwd2) {
+          alert('两次输入的密码不一样，请检查');  
+        }
+    });
+    // $('#supadmin').on('click', function() {
+    //     var val = $(this).val();
+    //     if (val == 1) {
+    //         $(this).val(0);
+    //         $('input[name="role_menu[]"]').attr('checked', 'checked');
+    //     }
+    //     if (val == 0) {
+    //         $(this).val(1);
+    //         $('input[name="role_menu[]"]').removeAttr('checked');
+    //     }
+    // });
 });

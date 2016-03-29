@@ -9,11 +9,8 @@
 
 <body>
     <div class="top_box">
-        <ul>
-            <li><a href="">前台浏览</a></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <div style="width: 20%;float:left"><a href="home.php?controller=index&method=index">前台浏览</a></div>
+        <div style="margin-right:30px;float: right;"><span>欢迎您<span style="color:#E91E63">{$smarty.session.name}</span></span><span><a href="admin.php?controller=login&method=logout" style="color:#E91E63">【退出系统】</a></span></div>
     </div>
     <div class="content_box">
         <div class="content_box_left">
@@ -27,22 +24,21 @@
                     </ul>
                 </div>
                 {foreach $menudata as $menu}
-                    <div>
-                        <p>{$menu.name}</p>
-                        {if $menu.child}
-                            
-                        <ul>
+                <div>
+                    <p>{$menu.name}</p>
+                    {if $menu.child}
+                    <ul>
                         {foreach $menu.child as $child}
-                            <li>
-                                <a href="#" traget="{$child.url}" onclick=aclick2('{$child.url}')>{$child.name}</a>
-                            </li>
+                        <li>
+                            <a href="#" traget="{$child.url}" onclick=aclick2('{$child.url}')>{$child.name}</a>
+                        </li>
                         {/foreach}
-                        </ul>
-                            
-                        {else}
-                        <ul><li><a href="">创建子目录</a></ul>
-                        {/if} 
-                    </div>
+                    </ul>
+                    {else}
+                    <ul>
+                        <li><a href="">创建子目录</a></ul>
+                    {/if}
+                </div>
                 {/foreach}
             </div>
         </div>
@@ -50,5 +46,4 @@
             <div class="content_box_main content_welcome">
                 <p class="welcome">欢迎进入后台管理界面</p>
             </div>
-
             {include file="tpl/admin/footer.html"}

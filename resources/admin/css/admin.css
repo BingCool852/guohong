@@ -22,7 +22,10 @@ small {
     color: #fff;
     text-decoration: none;
 }
-
+.top_box .dropdown {
+    height: 100%;
+    border: 1px solid red;
+}
 .content_box {
     background-color: #fff;
     width: 100%;
@@ -145,9 +148,11 @@ small {
     width: 100px;
 }
 
-
+.showchild {
+    cursor: pointer;
+}
 /*role*/
-
+.addadmin_box,
 .update_box,
 .addnew_content,
 .input_box_role,
@@ -166,6 +171,7 @@ small {
     background-color: #fafafa;
 }
 
+.addadmin_box tr,
 .update_box tr,
 .addnew_content tr,
 .input_box_role tr,
@@ -176,6 +182,7 @@ small {
     border-color: inherit;
 }
 
+.addadmin_box th,
 .update_box th,
 .addnew_content th,
 .input_box_role th,
@@ -189,6 +196,7 @@ small {
     background: #e6e6e6;
 }
 
+.addadmin_box td,
 .update_box td,
 .addnew_content td,
 .input_box_role td,
@@ -199,6 +207,7 @@ small {
     font-size: 13px;
 }
 
+.addadmin_box table,
 .update_box table,
 .addnew_content table,
 .exchange_box table,
@@ -234,7 +243,7 @@ small {
     margin-right: 22px;
 }
 
-.add, .addnew, .exchange{
+.add, .addnew, .exchange, .addadmin{
     cursor: pointer;
     color: blue;
 }

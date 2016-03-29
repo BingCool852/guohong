@@ -38,6 +38,10 @@ body {
     height: 100%;
 }
 
+.header_box_ul1 img {
+    margin:26px 0 27px 30px;
+}
+
 .ul1_center {
     width: 50%;
     line-height: 100px;
@@ -51,21 +55,12 @@ body {
     width: 20%;
 }
 
-.ul1_left table {
-    margin: auto;
-    margin-top: 10px;
-}
-
-.ul1_left table img {
-    margin: 0 15px 0 15px;
-}
-
 .ul1_center .mainmenu {
     margin-left: 20px;
 }
 
 .ul1_center .mainmenu a {
-    font-weight: 900;
+    font-weight: 100;
     color: #313131;
     font-size: 16px;
 }
@@ -235,7 +230,8 @@ body {
     text-align: center;
     font-size: 16px;
     color: #000;
-    font-weight: 900;
+    font-weight: 400;
+    cursor: pointer;
 }
 
 .content_box_show {

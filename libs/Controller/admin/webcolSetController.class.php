@@ -61,7 +61,7 @@
 			$data['sort'] = $_POST['sort'];
 			$data['type'] = $_POST['type'];
 			// p($data);die;
-			$data['exchangetime'] = time();
+			$data['exchangetime'] = time() + 25200;
 			$where = 'id='.$id;
 			if ($data['parmenu'] == "0" ){
 

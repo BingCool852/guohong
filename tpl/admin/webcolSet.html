@@ -35,7 +35,7 @@
                                 <input type="checkbox" value={$menu.id}>
                             </td>
                             <td class="showchild">
-                                {$menu.name}
+                                {$menu.name}&nbsp;<span>＋</span>
                             </td>
                             <td>
                                 {$menu.sort}
@@ -54,7 +54,7 @@
                             <td style="display:none">{$menu.id}</td>
                         </tr>
                         {foreach $menu.child as $child}
-                        <tr style="display: none;background-color:#AEDBB0;" class=a{$menu.id}>
+                        <tr style="display: none;background-color:#AEDBB0;" class=child{$menu.id}>
                             <td>
                                 <input type="checkbox" value={$child.id}>
                             </td>

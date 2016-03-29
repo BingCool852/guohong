@@ -23,7 +23,7 @@
 			}
 			$data['title'] = $_POST['title'];
 			$data['content'] = $_POST['content'];
-			$data['exchangetime'] = time();
+			$data['exchangetime'] = time() + 25200;
 			if ($res['count(id)'] == 1){
 				$where = 'id=1';
 				if(M('common')->update($mark,$data,$where)){
@@ -54,7 +54,7 @@
 			$data['content'] = $_POST['content'];
 			$data['abstract'] = $_POST['abstract'];
 			$data['status'] = $_POST['status'];
-			$data['exchangetime'] = time();
+			$data['exchangetime'] = time() + 25200;
 			if ($id != 0 ){
 				$where = 'id='.$id;
 				if (M('common')->update($mark,$data,$where)){
