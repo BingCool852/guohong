@@ -9,6 +9,10 @@ small {
     font-size: 12px !important;
     color: #9E9E9E;
 }
+
+a {
+    text-decoration: none
+}
 .top_box {
     width: 100%;
     height: 30px;
@@ -152,6 +156,7 @@ small {
     cursor: pointer;
 }
 /*role*/
+.exchangeadmin_box,
 .addadmin_box,
 .update_box,
 .addnew_content,
@@ -171,6 +176,7 @@ small {
     background-color: #fafafa;
 }
 
+.exchangeadmin_box tr,
 .addadmin_box tr,
 .update_box tr,
 .addnew_content tr,
@@ -182,6 +188,7 @@ small {
     border-color: inherit;
 }
 
+.exchangeadmin_box th,
 .addadmin_box th,
 .update_box th,
 .addnew_content th,
@@ -196,6 +203,7 @@ small {
     background: #e6e6e6;
 }
 
+.exchangeadmin_box td,
 .addadmin_box td,
 .update_box td,
 .addnew_content td,
@@ -207,6 +215,7 @@ small {
     font-size: 13px;
 }
 
+.exchangeadmin_box table,
 .addadmin_box table,
 .update_box table,
 .addnew_content table,
@@ -243,9 +252,9 @@ small {
     margin-right: 22px;
 }
 
-.add, .addnew, .exchange, .addadmin{
+.add, .addnew, .exchange, .addadmin,.role_exchange{
     cursor: pointer;
-    color: blue;
+    color: #0000EE;
 }
 
 /*页面1,2,3*/

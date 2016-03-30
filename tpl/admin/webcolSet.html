@@ -21,7 +21,7 @@
                             <th>
                                 <input type="checkbox" value="all">
                             </th>
-                            <th>栏目名称</th>
+                            <th>栏目名称＋</th>
                             <th>排序</th>
                             <th>前台界面</th>
                             <th>状态</th>
@@ -34,8 +34,11 @@
                             <td>
                                 <input type="checkbox" value={$menu.id}>
                             </td>
-                            <td class="showchild">
+                            <!-- <td class="showchild">
                                 {$menu.name}&nbsp;<span>＋</span>
+                            </td> -->
+                            <td class="showchild">
+                                {$menu.name}
                             </td>
                             <td>
                                 {$menu.sort}

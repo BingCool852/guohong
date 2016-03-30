@@ -44,9 +44,11 @@
                             <td>
                                 {if $user.status eq 1} 启用 {else} 停用 {/if}
                             </td>
+                            <td style="display: none">{$user.menu}</td>
+                            <td style="display: none">{$user.id}</td>
                             <td>
-                                <a class="role_exchange" href="#">修改</a>&nbsp;&nbsp;
-                                <a href="#">删除</a>
+                                <a class="role_exchange">修改</a>&nbsp;&nbsp;
+                                <a href="admin.php?controller=roleSet&method=del&uid={$user.id}">删除</a>
                             </td>
                         </tr>
                         {/foreach}
@@ -55,31 +57,44 @@
             </form>
         </div>
     </div>
-    <div class="exchange_box" style="display:none">
-        <form action="" method="post">
+    <div class="exchangeadmin_box" style="display:none">
+        <form action="admin.php?controller=roleSet&method=updataadmin" method="post">
             <table>
-                <tr>
-                    <td class="exchange_box_td1">账号状态</td>
-                    <td class="exchange_box_td2">
-                        <input type="checkbox" value="all" style="width:10px" class="yorn">&nbsp;启用/关闭
+                <tr style="display: none">
+                    <td class="addadmin_box2">
+                        <input type="text" name="uid">
                     </td>
                 </tr>
                 <tr>
-                    <td class="exchange_box_td1">用户名</td>
-                    <td class="exchange_box_td2">
-                        <input type="text" name="productname" class="exchange_name">
+                    <td class="addadmin_box1">账号状态</td>
+                    <td class="addadmin_box2">
+                        <input type="checkbox" value="1" name="status" style="width:10px">&nbsp;启用/关闭
                     </td>
                 </tr>
                 <tr>
-                    <td class="exchange_box_td1">登录密码</td>
-                    <td class="exchange_box_td2">
-                        <input type="text" name="productname">
+                    <td class="addadmin_box1">用户名</td>
+                    <td class="addadmin_box2">
+                        <input type="text" name="name">
                     </td>
                 </tr>
                 <tr>
-                    <td class="exchange_box_td1">管理权限</td>
-                    <td class="exchange_box_td2">
-                        <!-- <input type="text" name="productname"> -->
+                    <td class="addadmin_box1">旧密码</td>
+                    <td class="addadmin_box2">
+                        <input type="password" name="oldpwd" id="oldpwd">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="addadmin_box1">新密码</td>
+                    <td class="addadmin_box2">
+                        <input type="password" name="newpwd" id="newpwd">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="addadmin_box1">管理权限配置</td>
+                    <td class="addadmin_box2" style="height: 40px;">
+                        {foreach $menudata as $menu}
+                        <input type="checkbox" class="role_menu" value="{$menu.id}" name="role_menu2[]" style="width:20px;display:inline">{$menu.name}&nbsp;&nbsp; {/foreach}
+                        <span style="float:right;color:red"><input type="checkbox" id="supadmin" value="1" name="supadmin" style="width:20px;display:inline;">超级管理员</span>
                     </td>
                 </tr>
                 <tr>
@@ -96,7 +111,7 @@
                 <tr>
                     <td class="addadmin_box1">账号状态</td>
                     <td class="addadmin_box2">
-                        <input type="checkbox" value="1" name="status" style="width:10px">&nbsp;启用/关闭
+                        <input type="checkbox" name="status" value="1" checked="checked" style="width:10px">&nbsp;启用/关闭
                     </td>
                 </tr>
                 <tr>
@@ -122,7 +137,7 @@
                     <td class="addadmin_box2" style="height: 40px;">
                         {foreach $menudata as $menu}
                         <input type="checkbox" value="{$menu.id}" name="role_menu[]" style="width:20px;display:inline">{$menu.name}&nbsp;&nbsp; {/foreach}
-                        <span style="float:right;color:red"><input type="checkbox" id="supadmin" value="1" name="supadmin" style="width:20px;display:inline;">超级管理员</span>
+                        <span style="float:right;color:red"><input type="checkbox" id="supadmin" name="supadmin" style="width:20px;display:inline;">超级管理员</span>
                     </td>
                 </tr>
                 <tr>

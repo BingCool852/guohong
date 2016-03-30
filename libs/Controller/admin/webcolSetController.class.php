@@ -2,7 +2,17 @@
 	class webcolSetController{
 
 		function index(){
-			$menudata = M('menu')->getMenu("parmenu = '0'");
+			$uid = $_SESSION['uid'];
+			$user_role =  M('common')->getOneData('user',' where id='.$uid);
+			$split_str = split(',', $user_role[0]['menu']);
+			for ($i = 0; $i < count($split_str); $i++){
+				if ($i == 0){
+					$where = "id=".$split_str[$i];
+				} else {
+					$where = $where." or id=".$split_str[$i];
+				}
+			}
+			$menudata = M('menu')->getMenu($where);
 			foreach ($menudata as $key => $value) {
 				$childmenu = M('menu')->getMenu("parmenu = "."'".$value['id']."'");
 				if (is_array($childmenu)){
@@ -21,7 +31,6 @@
 				$menudata['parmenu'] = $pinfo[0]['id'];
 				$ischild = true;
 			}
-			// p($menudata);die;
 			$menudata['name'] = $_POST['name'];
 			$menudata['status'] = $_POST['istrue'];
 			$menudata['sort'] = $_POST['sort'];
@@ -37,7 +46,6 @@
 						$sql = "CREATE TABLE `guohong`.`".$menudata['url']."` ( `id` INT(16) NOT NULL AUTO_INCREMENT , `title` VARCHAR(64) NULL ,`abstract` VARCHAR(255) NULL , `src` VARCHAR(255) NULL , `content` TEXT NULL , `status` INT(4) NULL DEFAULT '1' , `exchangetime` VARCHAR(64) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
 					}
 					M('common')->query($sql);
-					// writefile($menudata['url'],$menudata['type']);
 					setfile($menudata['url']);
 				}
 				echo '<script>if(confirm("操作成功，返回继续添加")){window.location.href="'.$_SERVER['HTTP_REFERER'].'"}else{window.location.href="/admin.php?controller=webcolSet&method=index"}</script>';
@@ -54,13 +62,11 @@
 				$pinfo = M('menu')->getMenu("name = "."'".$data['parmenu']."'");
 				$data['parmenu'] = $pinfo[0]['id'];
 			}
-			// p($data);die;
 			$data['name'] = $_POST['name'];
 			$data['status'] = $_POST['istrue'];
 			$data['url'] = $_POST['url'];
 			$data['sort'] = $_POST['sort'];
 			$data['type'] = $_POST['type'];
-			// p($data);die;
 			$data['exchangetime'] = time() + 25200;
 			$where = 'id='.$id;
 			if ($data['parmenu'] == "0" ){

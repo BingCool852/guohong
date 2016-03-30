@@ -6,7 +6,6 @@ $(function() {
         var id = $(this).prev('td').children().val();
         var childs = '.child' + id;
         var span = $(this).children('span');
-        console.log(span);
         if ($(childs).css('display') == 'table-row') {
             $($(this).parent()).css('background-color', "#fff");
             $(childs).css('display', 'none');
@@ -147,15 +146,77 @@ $(function() {
             area: ['65%', '75%'],
             shadeClose: true, //点击遮罩关闭
             content: $(".addadmin_box"),
+            end: function() {
+                window.location.reload(); //关闭灯罩时刷新界面
+            }
         });
     });
 
-    $('#pwd2').blur(function(){
+    //输入密码对比
+    $('#pwd2').blur(function() {
         var pwd = $('#pwd').val();
         var pwd2 = $(this).val();
-        if(pwd != pwd2) {
-          alert('两次输入的密码不一样，请检查');  
+        if (pwd != pwd2) {
+            alert('两次输入的密码不一样，请检查');
         }
+    });
+
+    //管理员信息修改
+    $('.role_exchange').on('click', function() {
+        var datas = $(this).parent().parent().text().trim().split('\n');
+        var da = new Array();
+        for (var i = 0; i < datas.length; i++) {
+            if (datas[i].trim() == "启用") {
+                // $('.exchangeadmin_box input[name=status]').attr({ 'checked': 'checked', 'value': 1 });
+                $('.exchangeadmin_box input[name=status]').attr('checked','checked');
+
+            } else if (datas[i].trim() == "停用") {
+                $('.exchangeadmin_box input[name=status]').removeAttr('checked');
+
+            } else {
+                da[i] = datas[i].trim();
+            }
+        }
+        $('.exchangeadmin_box input[name=name]').attr('value', da[0]);
+        $('.exchangeadmin_box input[name=uid]').attr('value', da[8]);
+
+        if (da[2] == "超级管理员"){
+            $('.exchangeadmin_box input[name=supadmin]').attr('checked', 'checked');
+        }
+        var res = da[7].split(',');
+        for (var i in res) {
+            if ($('.role_menu[value=' + res[i] + ']')) {
+                $('.role_menu[value=' + res[i] + ']').attr('checked', 'checked');
+            }
+        }
+
+        layer.open({
+            type: 1,
+            dialog: {
+                msg: '右下角消息提示',
+                btns: 2,
+            },
+            title: '修改管理员信息 ',
+            area: ['65%', '75%'],
+            shadeClose: true, //点击遮罩关闭
+            content: $(".exchangeadmin_box"),
+            end: function() {
+                window.location.reload(); //关闭灯罩时刷新界面
+            }
+        });
+    });
+
+    $('#oldpwd').blur(function(){
+        var oldpwd = $(this).val(),
+            uid = $('input[name=uid]').val();
+        $.post(
+            "admin.php?controller=roleSet&method=repwd", { oldpwd: oldpwd,uid:uid},
+            function(data) {
+                if (data == 0 ){
+                    alert('旧密码不正确，请重新输入');
+                }
+            }, "json"
+        );
     });
     // $('#supadmin').on('click', function() {
     //     var val = $(this).val();
